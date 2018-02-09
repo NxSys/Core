@@ -1,1 +1,3 @@
 * text=auto !eol
+bin/esc-generator.neon -text
+bin/esc-generator.php -text

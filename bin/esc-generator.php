@@ -1,0 +1,162 @@
+<?php
+require_once 'vendor\autoload.php';
+
+use Nette\Neon;
+use Nette\PhpGenerator as Gen;
+
+const SCRIPT_CONFIG='esc-generator.neon';
+$conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG));
+
+//-----C L A S S E S-----
+
+class SplXPiller
+{
+	use Nette\SmartObject;
+	public $conf=[];
+	public $sCurrClassname;
+
+	public $currCtorParams;
+
+	public function __construct($sClassName)
+	{
+		$this->conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG));
+
+		$this->sCurrClassname=$sClassName;
+	}
+
+	public function exec()
+	{
+		//create class
+		$oTypedClass=new Gen\PhpFile;
+		$oTypedClass->addComment($this->getTxt('txt.file.doc'));
+		$oClassNS=$oTypedClass->addNamespace($this->getTxt('namespace'));
+		$oClassNS->addUse($this->getTxt('decorator.ns'), 'StdLib');
+		$oClassNS->addUse($this->sCurrClassname, 'PHP_'.$this->sCurrClassname);
+
+		//create interface
+		$oTypedIface=new Gen\PhpFile;
+		$oTypedIface->addComment($this->getTxt('txt.file.doc'));
+		$oTypeNS=$oTypedIface->addNamespace($this->getTxt('namespace'));
+
+		$oClassBase=$oClassNS->addClass($this->sCurrClassname);
+		$oItypeBase=$oTypeNS->addInterface('I'.$this->sCurrClassname);
+		$oClassBase->addComment($this->getTxt('txt.class.doc'));
+		$oItypeBase->addComment($this->getTxt('txt.itype.doc'));
+
+		$oClassBase->addTrait($this->getTxt('decorator'));
+		$this->buildClassPair($oClassBase, $oItypeBase);
+		$oClassBase->addImplement($this->getTxt('namespace').'\I'.$this->sCurrClassname);
+		$oClassBase->addImplement($this->getTxt('decorator.type'));
+
+
+		$this->write($oTypedClass, "out\\$this->sCurrClassname.php");
+		$this->write($oTypedIface, "out\I$this->sCurrClassname.php");
+		return;
+	}
+
+	public function write(Nette\PhpGenerator\PhpFile $file, string $sFileName)
+	{
+		// echo $file;
+		file_put_contents($sFileName, $file);
+	}
+
+	public function buildClassPair(Gen\ClassType $class, Gen\ClassType $interface)
+	{
+		$aClassData=$this->reflectOnClass($class->getName());
+		$interface->setConstants($aClassData['constants']);
+
+		//parental assistance is suggested
+		if(isset($this->conf['parents'][$class->getName()]))
+		{
+			$sParent=$this->conf['parents'][$class->getName()];
+			$interface->addExtend($this->getTxt('namespace').'\I'.$sParent);
+			$class->addExtend($this->getTxt('namespace').'\\'.$sParent);
+		}
+
+		//@todo this is more verbose (syntax & interface count) then it needs to be
+		array_walk($aClassData['interfaces'], function($ifs) use ($class) { $class->addImplement($ifs); });
+
+		//add more meths C&I
+		$aClassMethods=array_map(function($rm) use ($class) { return Gen\Method::from([$class->getName(), $rm->getName()])->setBody(null); }, $aClassData['methods.ref']);
+		$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
+		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body.selfret')); });
+		$class->setMethods($aClassMethods);
+			//ref
+			// set def body
+
+		//fixup ctor
+		if(isset($class->getMethods()['__construct']))
+		{
+			$class->getMethod('__construct')
+				  ->addComment('ctor')
+				  ->setBody($this->getTxt('php.ctor.body'));
+		}
+
+
+		//fixup edgecases
+
+		return;
+	}
+
+	public function reflectOnClass(string $baseClassname): array
+	{
+		$rc=new ReflectionClass($baseClassname);
+		// var_dump($rc->getDocComment());
+		$aData=[];
+
+		//get implementation declarations
+		$aData['interfaces']=array_map(function($ifs){ return $ifs->getName(); }, $rc->getInterfaces());
+
+		//get all class constants
+		$aData['constants']=$rc->getConstants();
+
+		//get ctor params
+		$rc->getConstructor();
+
+		//get all local public method prototypes
+		$meths=$rc->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED);
+		$meths=array_filter($meths, function($v, $k) use ($baseClassname) { return $v->getDeclaringClass()->getName()==$baseClassname; },
+							ARRAY_FILTER_USE_BOTH);
+		$aData['methods.ref']=$meths;
+		// $aData['methods']=array_map(function($meth){ return $meth->getName(); }, $meths);
+		//get
+
+		$this->setCurrCtorParams('$var');
+
+		return $aData;
+	}
+
+	public function reflectOnParams($oReflectCtor)
+	{
+		$params=$oReflectCtor->getParameters();
+	}
+
+	public function setCurrCtorParams($currCtorParams)
+	{
+		$this->currCtorParams=$currCtorParams;
+	}
+
+	public function getTxt($sBlockName): string
+	{
+		//@todo precompile for speed
+		$aTokens=[];
+		$aTokens['%classname']=$this->sCurrClassname;
+		$aTokens['%php.ctor.params']=$this->currCtorParams;
+
+		//setup % prefix
+		$cnftok=array_combine(array_map(function($k){return '%'.$k;}, array_keys($this->conf)), $this->conf);
+
+		// yeah yeah I know
+		// Arr2Str is a non issue so.. meh? meh.
+		return @strtr(str_replace(array_keys($cnftok), $this->conf, $this->conf[$sBlockName]), $aTokens);
+	}
+}
+//-----F U N C T I O N S-----
+
+// foreach ($conf['classes'] as $cls)
+foreach (spl_classes() as $cls)
+{
+	(new SplXPiller($cls))->exec();
+	echo "...$cls";
+}
+echo "\ndone";
