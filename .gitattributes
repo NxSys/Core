@@ -1,6 +1,8 @@
 * text=auto !eol
 bin/esc-generator.neon -text
 bin/esc-generator.php -text
+/composer.json -text
+/composer.lock -text
 etc/esc/AbstractCompleteStreamWrapper.php -text
 etc/esc/DecoratingTrait.php -text
 etc/esc/ICompleteStreamWrapper.php -text
