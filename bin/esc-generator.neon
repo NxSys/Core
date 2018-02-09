@@ -1,4 +1,7 @@
 
+class-path-pattern: ..\src\ExtensibleSystemClasses\%classname.php
+iface-path-pattern: ..\src\ExtensibleSystemClasses\I%classname.php
+
 namespace: NxSys\Core\ExtensibleSystemClasses
 pkgname: NxSys.Core\ESC
 composername: nxsys/core.esc
@@ -32,6 +35,7 @@ parents:
 
 # %pkgname
 # %classname
+# %classname.tolower
 #
 
 doc.default.desc: Std %classname wrapper support file
@@ -73,7 +77,7 @@ txt.class.doc: '''
 	will be *rewrapped* before being returned.
 
 	@see \%classname
-	@link http://php.net/manual/en/class.%classname.php
+	@link http://php.net/manual/en/class.%classname.lower.php
 	@author Chris R. Feamster <cfeamster@f2developments.com>
 '''
 
@@ -92,7 +96,7 @@ txt.itype.doc: '''
 	operation is well documented...
 
 	@see \%classname
-	@link http://php.net/manual/en/class.%classname.php
+	@link http://php.net/manual/en/class.%classname.lower.php
 	@author Chris R. Feamster <cfeamster@f2developments.com>
 '''
 
@@ -126,20 +130,6 @@ php.concretions.body.selfret: '''
 # ------ E D G E   C A S E S ------
 
 edgecases:
-	#The current file
-	FilesystemIterator:current: '''
-        $ret=%php.parent-exec.call;
-        if($ret instanceof PHP_FilesystemIterator)
-        {
-            return self::_setTarget($ret);
-        }
-        if($ret instanceof PHP_SplFIleinfo)
-        {
-            return SplFileInfo::_setTarget($ret);
-        }
-        return $ret;
-        '''
-
     #Return the current DirectoryIterator item.
 	DirectoryIterator:current: '''
         $ret=%php.parent-exec.call;

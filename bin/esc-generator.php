@@ -4,6 +4,8 @@ require_once 'vendor\autoload.php';
 use Nette\Neon;
 use Nette\PhpGenerator as Gen;
 
+$oldcd=getcwd();
+chdir(__DIR__);
 const SCRIPT_CONFIG='esc-generator.neon';
 $conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG));
 
@@ -49,8 +51,8 @@ class SplXPiller
 		$oClassBase->addImplement($this->getTxt('decorator.type'));
 
 
-		$this->write($oTypedClass, "out\\$this->sCurrClassname.php");
-		$this->write($oTypedIface, "out\I$this->sCurrClassname.php");
+		$this->write($oTypedClass, $this->getTxt('class-path-pattern'));
+		$this->write($oTypedIface, $this->getTxt('iface-path-pattern'));
 		return;
 	}
 
@@ -93,7 +95,7 @@ class SplXPiller
 		}
 
 
-		//fixup edgecases
+		//@todo fixup edgecases?
 
 		return;
 	}
@@ -141,6 +143,7 @@ class SplXPiller
 		//@todo precompile for speed
 		$aTokens=[];
 		$aTokens['%classname']=$this->sCurrClassname;
+		$aTokens['%classname.lower']=strtolower($this->sCurrClassname);
 		$aTokens['%php.ctor.params']=$this->currCtorParams;
 
 		//setup % prefix
@@ -160,3 +163,4 @@ foreach (spl_classes() as $cls)
 	echo "...$cls";
 }
 echo "\ndone";
+chdir($oldcd);

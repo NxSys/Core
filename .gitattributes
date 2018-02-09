@@ -1,3 +1,7 @@
 * text=auto !eol
 bin/esc-generator.neon -text
 bin/esc-generator.php -text
+etc/esc/AbstractCompleteStreamWrapper.php -text
+etc/esc/DecoratingTrait.php -text
+etc/esc/ICompleteStreamWrapper.php -text
+etc/esc/IhasTraitDecorating.php -text
