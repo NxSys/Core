@@ -1,6 +1,7 @@
 * text=auto !eol
 bin/esc-generator.neon -text
 bin/esc-generator.php -text
+/build.xml -text
 /composer.json -text
 /composer.lock -text
 etc/composer.json -text
