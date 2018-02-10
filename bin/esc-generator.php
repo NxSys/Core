@@ -198,7 +198,7 @@ foreach ($aTargetClassnames as $cls)
 {
 	echo "$cls";
 	(new SplXPiller($cls))->exec();
-	echo "...";
+	echo "...\n";
 }
 echo "\ndone";
 chdir($oldcd);
