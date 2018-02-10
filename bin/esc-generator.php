@@ -68,9 +68,10 @@ class SplXPiller
 		$interface->setConstants($aClassData['constants']);
 
 		//parental assistance is suggested
-		if(isset($this->conf['parents'][$class->getName()]))
+		
+		if ($aClassData['parent'] != null)
 		{
-			$sParent=$this->conf['parents'][$class->getName()];
+			$sParent=$aClassData['parent']->getName();
 			$interface->addExtend($this->getTxt('namespace').'\I'.$sParent);
 			$class->addExtend($this->getTxt('namespace').'\\'.$sParent);
 		}
@@ -111,6 +112,8 @@ class SplXPiller
 
 		//get all class constants
 		$aData['constants']=$rc->getConstants();
+		
+		$aData['parent'] = $rc->getParentClass();
 
 		//get ctor params
 		$rc->getConstructor();
@@ -159,8 +162,9 @@ class SplXPiller
 // foreach ($conf['classes'] as $cls)
 foreach (spl_classes() as $cls)
 {
+	echo "...";
 	(new SplXPiller($cls))->exec();
-	echo "...$cls";
+	echo "$cls\n";
 }
 echo "\ndone";
 chdir($oldcd);

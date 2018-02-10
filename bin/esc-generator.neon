@@ -20,17 +20,6 @@ classes:
 	- SplTempFileObject
 
 
-
-parents:
-	SplTempFileObject: SplFileObject
-	SplFileObject: SplFileInfo
-	GlobIterator: FilesystemIterator
-	RecursiveDirectoryIterator: FilesystemIterator
-	FilesystemIterator: DirectoryIterator
-	DirectoryIterator: SplFileInfo
-
-
-
 #texts
 
 # %pkgname
