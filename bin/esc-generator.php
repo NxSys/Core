@@ -17,7 +17,7 @@ class SplXPiller
 	public $conf=[];
 	public $sCurrClassname;
 
-	public $currCtorParams;
+	public $sCurrExtName;
 
 	public function __construct($sClassName)
 	{
@@ -28,6 +28,9 @@ class SplXPiller
 
 	public function exec()
 	{
+		$this->sCurrExtName=(new ReflectionClass($this->sCurrClassname))->getExtensionName();
+		$this->sCurrExtName=('Core'==$this->sCurrExtName)?false:$this->sCurrExtName;
+
 		//create class
 		$oTypedClass=new Gen\PhpFile;
 		$oTypedClass->addComment($this->getTxt('txt.file.doc'));
@@ -59,6 +62,7 @@ class SplXPiller
 	public function write(Nette\PhpGenerator\PhpFile $file, string $sFileName)
 	{
 		// echo $file;
+		@mkdir(dirname($sFileName));
 		file_put_contents($sFileName, $file);
 	}
 
@@ -68,7 +72,7 @@ class SplXPiller
 		$interface->setConstants($aClassData['constants']);
 
 		//parental assistance is suggested
-		
+
 		if ($aClassData['parent'] != null)
 		{
 			$sParent=$aClassData['parent']->getName();
@@ -108,15 +112,15 @@ class SplXPiller
 		$aData=[];
 
 		//get ext -> ns
-		$this->sCurrExtName=$rc->getExtensionName();
-		$this->sCurrExtName=('Core'==$this->sCurrExtName)?'':$this->sCurrExtName;
+		// $this->sCurrExtName=$rc->getExtensionName();
+		// $this->sCurrExtName=('Core'==$this->sCurrExtName)?'':$this->sCurrExtName;
 
 		//get implementation declarations
 		$aData['interfaces']=array_map(function($ifs){ return $ifs->getName(); }, $rc->getInterfaces());
 
 		//get all class constants
 		$aData['constants']=$rc->getConstants();
-		
+
 		$aData['parent'] = $rc->getParentClass();
 
 		//get ctor params
@@ -140,13 +144,14 @@ class SplXPiller
 
 	public function getTxt($sBlockName): string
 	{
+
 		//@todo precompile for speed
 		$aTokens=[];
 		$aTokens['%classname']=$this->sCurrClassname;
 		$aTokens['%classname.lower']=strtolower($this->sCurrClassname);
-		$aTokens['%php.ns' ]='\\'.$this->sCurrExtName;
-		$aTokens['%php.ndir']=DIRECTORY_SEPARATOR.$this->sCurrExtName;
-
+		$aTokens['%php.ns' ]=$this->sCurrExtName?'\\'.$this->sCurrExtName:null;
+		$aTokens['%php.ndir']=$this->sCurrExtName?(DIRECTORY_SEPARATOR.$this->sCurrExtName):null;
+// var_dump($this->sCurrExtName,$aTokens);
 		//setup % prefix
 		$cnftok=array_combine(array_map(function($k){return '%'.$k;}, array_keys($this->conf)), $this->conf);
 
@@ -159,17 +164,27 @@ class SplXPiller
 
 function getInternalClasses()
 {
+	$a=[];
 	$aAllTheClasses=get_declared_classes();
-
+	foreach($aAllTheClasses as $cls)
+	{
+		$rc=new \ReflectionClass($cls);
+		if(!$rc->isInternal())
+		{
+			continue;
+		}
+		$a[]=$cls;
+	}
+	return $a;
 }
-
-
+// $aTargetClassnames=spl_classes();
+$aTargetClassnames=getInternalClasses();
 // foreach ($conf['classes'] as $cls)
-foreach (spl_classes() as $cls)
+foreach ($aTargetClassnames as $cls)
 {
 	echo "...";
 	(new SplXPiller($cls))->exec();
-	echo "$cls\n";
+	echo "$cls";
 }
 echo "\ndone";
 chdir($oldcd);
