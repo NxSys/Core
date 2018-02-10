@@ -2,6 +2,7 @@
 bin/esc-generator.neon -text
 bin/esc-generator.php -text
 /build.xml -text
+/codeception.yml -text
 /composer.json -text
 /composer.lock -text
 etc/composer.json -text
@@ -9,3 +10,17 @@ etc/esc/AbstractCompleteStreamWrapper.php -text
 etc/esc/DecoratingTrait.php -text
 etc/esc/ICompleteStreamWrapper.php -text
 etc/esc/IhasTraitDecorating.php -text
+tests/_data/.gitkeep -text
+tests/_output/.gitkeep -text
+tests/_support/AcceptanceTester.php -text
+tests/_support/FunctionalTester.php -text
+tests/_support/Helper/Acceptance.php -text
+tests/_support/Helper/Functional.php -text
+tests/_support/Helper/Unit.php -text
+tests/_support/UnitTester.php -text
+tests/_support/_generated/AcceptanceTesterActions.php -text
+tests/_support/_generated/FunctionalTesterActions.php -text
+tests/_support/_generated/UnitTesterActions.php -text
+tests/acceptance.suite.yml -text
+tests/functional.suite.yml -text
+tests/unit.suite.yml -text
