@@ -7,7 +7,7 @@ use Nette\PhpGenerator as Gen;
 $oldcd=getcwd();
 chdir(__DIR__);
 const SCRIPT_CONFIG='esc-generator.neon';
-$conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG));
+($conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG))) or die('Problem with config file');
 
 //-----C L A S S E S-----
 
@@ -82,32 +82,20 @@ class SplXPiller
 		//@todo this is more verbose (syntax & interface count) then it needs to be
 		array_walk($aClassData['interfaces'], function($ifs) use ($class) { $class->addImplement($ifs); });
 
-		//fixup ctor
-		if(isset($class->getMethods()['__construct']))
-		{
-			$class->getMethod('__construct')
-				  ->addComment('ctor')
-				  ->setBody($this->getTxt('php.ctor.body'));
-		}
-		else
-		{
-			$class->addMethod('__construct')
-				  ->addComment('ctor')
-				  ->setBody($this->getTxt('php.ctor.body'));
-		}
 
 		//add more meths C&I
 		$aClassMethods=array_map(function($rm) use ($class) { return Gen\Method::from([$class->getName(), $rm->getName()])->setBody(null); }, $aClassData['methods.ref']);
 		$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
 		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body.selfret')); });
+		//fixup ctor
+		// var_dump($aClassData['hasCtor']);
+		$aClassData['hasCtor']?:array_unshift($aClassMethods, new Gen\Method('__construct'));
 		$class->setMethods($aClassMethods);
-			//ref
-			// set def body
-
-
+		$class->getMethod('__construct')
+			  ->addComment('ctor')
+			  ->setBody($this->getTxt('php.ctor.body'));
 
 		//@todo fixup edgecases?
-
 		return;
 	}
 
@@ -129,8 +117,13 @@ class SplXPiller
 
 		$aData['parent'] = $rc->getParentClass();
 
-		//get ctor params
-		$rc->getConstructor();
+		//get ctor
+		$aData['hasCtor']=false;
+		if(($ctor=$rc->getConstructor())
+			&& $ctor->getDeclaringClass()->getName()==$baseClassname)
+		{
+			$aData['hasCtor']=$rc->getConstructor()->getName();
+		}
 
 		//get all local public method prototypes
 		$meths=$rc->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED);
@@ -170,12 +163,26 @@ class SplXPiller
 
 function getInternalClasses()
 {
+	($conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG))) or die('Problem with config file');
 	$a=[];
 	$aAllTheClasses=get_declared_classes();
+	if($conf['whitelist.classes'])
+	{
+		array_unshift($aAllTheClasses, ...$conf['whitelist.classes']);
+	}
+	if($conf['whitelist.exts'])
+	{
+		array_walk($conf['whitelist.exts'], function($ext) use($aAllTheClasses) { array_unshift($aAllTheClasses, (new ReflectionExtension($ext))->getClassNames());} );
+	}
 	foreach($aAllTheClasses as $cls)
 	{
 		$rc=new \ReflectionClass($cls);
-		if(!$rc->isInternal())
+		if($rc->isUserDefined()
+		|| $rc->isFinal()
+		|| ($rc->getConstructor()?$rc->getConstructor()->isPrivate():false)
+		|| in_array($cls, (array)$conf['blacklist.classes'])
+		|| in_array($rc->getExtensionName(), (array)$conf['blacklist.exts'])
+		)
 		{
 			continue;
 		}
@@ -184,13 +191,14 @@ function getInternalClasses()
 	return $a;
 }
 // $aTargetClassnames=spl_classes();
+
 $aTargetClassnames=getInternalClasses();
 // foreach ($conf['classes'] as $cls)
 foreach ($aTargetClassnames as $cls)
 {
-	echo "...";
-	(new SplXPiller($cls))->exec();
 	echo "$cls";
+	(new SplXPiller($cls))->exec();
+	echo "...";
 }
 echo "\ndone";
 chdir($oldcd);

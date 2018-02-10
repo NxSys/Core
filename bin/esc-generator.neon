@@ -1,4 +1,10 @@
+#auto texts
 
+# %pkgname
+# %classname
+# %classname.tolower
+# %php.ns
+# %php.ndir
 
 class-path-pattern: ../src/ExtensibleSystemClasses%php.ndir/%classname.php
 iface-path-pattern: ../src/ExtensibleSystemClasses%php.ndir/I%classname.php
@@ -8,32 +14,20 @@ pkgname: NxSys.Core\ESC
 composername: nxsys/core.esc
 
 #remember: deny over allow
-blacklist.class:
-blacklist.ext:
+blacklist.classes:
+	# - Closure
+	# - SoapClient
+blacklist.exts:
+	- soap	#@todo: soap ext, in all its broken-ness, is using PHP4 style constructors
 
-whitelist.class:
-whitelist.ext:
+whitelist.classes:
+	# - StdClass
+whitelist.exts:
+	# - SPL
 
 decorator.ns: NxSys\Core\ExtensibleSystemClasses
 decorator: %decorator.ns\DecoratingTrait
 decorator.type: %decorator.ns\IhasTraitDecorating
-
-classes:
-	- DirectoryIterator
-	- FilesystemIterator
-	- GlobIterator
-	- RecursiveDirectoryIterator
-	- SplFileInfo
-	- SplFileObject
-	- SplTempFileObject
-
-
-#texts
-
-# %pkgname
-# %classname
-# %classname.tolower
-#
 
 doc.default.desc: Std %classname wrapper support file
 
