@@ -3,8 +3,8 @@ bin/esc-generator.neon -text
 bin/esc-generator.php -text
 /composer.json -text
 /composer.lock -text
+etc/composer.json -text
 etc/esc/AbstractCompleteStreamWrapper.php -text
 etc/esc/DecoratingTrait.php -text
 etc/esc/ICompleteStreamWrapper.php -text
 etc/esc/IhasTraitDecorating.php -text
-etc/esc/composer.json -text
