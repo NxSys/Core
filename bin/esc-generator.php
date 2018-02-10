@@ -98,6 +98,12 @@ class SplXPiller
 				  ->addComment('ctor')
 				  ->setBody($this->getTxt('php.ctor.body'));
 		}
+		else
+		{
+			$class->addMethod('__construct')
+				  ->addComment('ctor')
+				  ->setBody($this->getTxt('php.ctor.body'));
+		}
 
 
 		//@todo fixup edgecases?
