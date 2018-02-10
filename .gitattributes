@@ -7,3 +7,4 @@ etc/esc/AbstractCompleteStreamWrapper.php -text
 etc/esc/DecoratingTrait.php -text
 etc/esc/ICompleteStreamWrapper.php -text
 etc/esc/IhasTraitDecorating.php -text
+etc/esc/composer.json -text
