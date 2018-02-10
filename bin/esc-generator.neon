@@ -1,10 +1,18 @@
 
-class-path-pattern: ..\src\ExtensibleSystemClasses\%classname.php
-iface-path-pattern: ..\src\ExtensibleSystemClasses\I%classname.php
 
-namespace: NxSys\Core\ExtensibleSystemClasses
+class-path-pattern: ../src/ExtensibleSystemClasses%php.ndir/%classname.php
+iface-path-pattern: ../src/ExtensibleSystemClasses%php.ndir/I%classname.php
+
+namespace: NxSys\Core\ExtensibleSystemClasses%php.ns
 pkgname: NxSys.Core\ESC
 composername: nxsys/core.esc
+
+#remember: deny over allow
+blacklist.class:
+blacklist.ext:
+
+whitelist.class:
+whitelist.ext:
 
 decorator.ns: NxSys\Core\ExtensibleSystemClasses
 decorator: %decorator.ns\DecoratingTrait

@@ -107,6 +107,10 @@ class SplXPiller
 		// var_dump($rc->getDocComment());
 		$aData=[];
 
+		//get ext -> ns
+		$this->sCurrExtName=$rc->getExtensionName();
+		$this->sCurrExtName=('Core'==$this->sCurrExtName)?'':$this->sCurrExtName;
+
 		//get implementation declarations
 		$aData['interfaces']=array_map(function($ifs){ return $ifs->getName(); }, $rc->getInterfaces());
 
@@ -126,8 +130,6 @@ class SplXPiller
 		// $aData['methods']=array_map(function($meth){ return $meth->getName(); }, $meths);
 		//get
 
-		$this->setCurrCtorParams('$var');
-
 		return $aData;
 	}
 
@@ -136,18 +138,14 @@ class SplXPiller
 		$params=$oReflectCtor->getParameters();
 	}
 
-	public function setCurrCtorParams($currCtorParams)
-	{
-		$this->currCtorParams=$currCtorParams;
-	}
-
 	public function getTxt($sBlockName): string
 	{
 		//@todo precompile for speed
 		$aTokens=[];
 		$aTokens['%classname']=$this->sCurrClassname;
 		$aTokens['%classname.lower']=strtolower($this->sCurrClassname);
-		$aTokens['%php.ctor.params']=$this->currCtorParams;
+		$aTokens['%php.ns' ]='\\'.$this->sCurrExtName;
+		$aTokens['%php.ndir']=DIRECTORY_SEPARATOR.$this->sCurrExtName;
 
 		//setup % prefix
 		$cnftok=array_combine(array_map(function($k){return '%'.$k;}, array_keys($this->conf)), $this->conf);
@@ -158,6 +156,13 @@ class SplXPiller
 	}
 }
 //-----F U N C T I O N S-----
+
+function getInternalClasses()
+{
+	$aAllTheClasses=get_declared_classes();
+
+}
+
 
 // foreach ($conf['classes'] as $cls)
 foreach (spl_classes() as $cls)
