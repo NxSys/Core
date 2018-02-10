@@ -72,7 +72,6 @@ class SplXPiller
 		$interface->setConstants($aClassData['constants']);
 
 		//parental assistance is suggested
-
 		if ($aClassData['parent'] != null)
 		{
 			$sParent=$aClassData['parent']->getName();
@@ -82,14 +81,6 @@ class SplXPiller
 
 		//@todo this is more verbose (syntax & interface count) then it needs to be
 		array_walk($aClassData['interfaces'], function($ifs) use ($class) { $class->addImplement($ifs); });
-
-		//add more meths C&I
-		$aClassMethods=array_map(function($rm) use ($class) { return Gen\Method::from([$class->getName(), $rm->getName()])->setBody(null); }, $aClassData['methods.ref']);
-		$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
-		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body.selfret')); });
-		$class->setMethods($aClassMethods);
-			//ref
-			// set def body
 
 		//fixup ctor
 		if(isset($class->getMethods()['__construct']))
@@ -104,6 +95,15 @@ class SplXPiller
 				  ->addComment('ctor')
 				  ->setBody($this->getTxt('php.ctor.body'));
 		}
+
+		//add more meths C&I
+		$aClassMethods=array_map(function($rm) use ($class) { return Gen\Method::from([$class->getName(), $rm->getName()])->setBody(null); }, $aClassData['methods.ref']);
+		$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
+		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body.selfret')); });
+		$class->setMethods($aClassMethods);
+			//ref
+			// set def body
+
 
 
 		//@todo fixup edgecases?

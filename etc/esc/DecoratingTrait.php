@@ -17,7 +17,7 @@
  */
 
 /** Local Namespace **/
-namespace NxSys\Library\Std;
+namespace NxSys\Core\ExtensibleSystemClasses;
 
 use ReflectionClass as RefClass;
 use InvalidArgumentException as IVAX;
