@@ -27,7 +27,7 @@ use InvalidArgumentException as IVAX;
  *
  * Note: This does does not yet do two important things.
  * <ol>
- *  <li> Allow 100% same behavior for statics. a) php doesn't allow static member
+ *  <li> Allow 100% same behavior for statics. a) php doesn't allow static property
  *  magic and b) even supporting __callStatic turned up a stackoverflow in a
  *  few odd edge (error) cases. (If we're going to fail we need to fail
  *  predictably!)</li>
@@ -48,6 +48,9 @@ trait DecoratingTrait
 
 	/* @var array Decorated object's operations */
 	protected $_aTargetObjectOperations;
+
+	/* @var ReflectionClass Reflection Class for this class. */
+	protected $_oSelfReflectionObject;
 
 	public function __get($sLabel)
 	{
@@ -75,8 +78,30 @@ trait DecoratingTrait
 		{
 			throw new IVAX($sMethName.'() is not a valid method on '.get_class($this->_oTargetObject));
 		}
-		return call_user_func_array([$this->_oTargetObject, $sMethName], (array)$aArgs);
+		$ret=call_user_func_array([$this->_oTargetObject, $sMethName], (array)$aArgs);
+		if($ret===$this->_oTargetObject)
+		{
+		    return $this;
+		}
+		if(!is_object($ret))
+		{
+			return $ret;
+		}
+		$pfqcn=$this->_oSelfReflectionObject->getNamespaceName.'\\'.get_class($ret);
+		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type']))
+		{
+		    return $pfqcn::_setTarget($ret);
+		}
+
+		return $ret;
 	}
+
+	public function __callStatic($sMethName, $aArgs=[])
+	{
+
+	}
+
+
 
 	/**
 	 * Configures the decoration target
@@ -94,8 +119,10 @@ trait DecoratingTrait
 		}
 		//its either reflection or double wrapped objects, so...
 		//wasting a O(1) function call is better then clogging the stack, right?
-		$object=(new RefClass(__CLASS__))->newInstanceWithoutConstructor();
+		$oRefClass = new RefClass(__CLASS__);
+		$object=$oRefClass->newInstanceWithoutConstructor();
 		$object->_refreshTarget($oTarget);
+		$object->_oSelfReflectionObject = $oRefClass;
 		return $object;
 	}
 

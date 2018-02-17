@@ -5,11 +5,11 @@ bin/esc-generator.php -text
 /codeception.yml -text
 /composer.json -text
 /composer.lock -text
-etc/composer.json -text
 etc/esc/AbstractCompleteStreamWrapper.php -text
 etc/esc/DecoratingTrait.php -text
 etc/esc/ICompleteStreamWrapper.php -text
 etc/esc/IhasTraitDecorating.php -text
+etc/esc/composer.json -text
 tests/_data/.gitkeep -text
 tests/_output/.gitkeep -text
 tests/_support/AcceptanceTester.php -text

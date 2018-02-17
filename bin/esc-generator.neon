@@ -96,6 +96,8 @@ php.ctor.body: "$this->_refreshTarget(new PHP_%classname(...func_get_args()));"
 
 php.parent-exec.call: "$this->__call(__FUNCTION__, func_get_args())"
 
+php.parent-exec.callStatic: "$this->__callStatic(__FUNCTION__, func_get_args())"
+
 php.concretions.body: "return %php.parent-exec.call;"
 
 php.concretions.body.selfret: '''
@@ -109,7 +111,7 @@ php.concretions.body.selfret: '''
         	return $ret;
         }
         $pfqcn='%namespace\\'.get_class($ret);
-        if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.type'] )
+        if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.type']))
         {
             return $pfqcn::_setTarget($ret);
         }

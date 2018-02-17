@@ -24,6 +24,6 @@
     },
     "autoload":
     {
-        "psr-4": { "NxSys\\Core\\ExtensibleSystemClasses\\": "ExtensibleSystemClasses/" }
+        "psr-4": { "NxSys\\Core\\ExtensibleSystemClasses\\": "/" }
     }
 }

@@ -1,7 +1,7 @@
 {
     "name": "nxsys/core",
     "description": "Core Complete",
-    "type": "metapackage",
+    "type": "library",
     "license": "MIT",
     "minimum-stability": "stable",
     "require": {},

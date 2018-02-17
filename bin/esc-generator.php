@@ -86,7 +86,7 @@ class SplXPiller
 		//add more meths C&I
 		$aClassMethods=array_map(function($rm) use ($class) { return Gen\Method::from([$class->getName(), $rm->getName()])->setBody(null); }, $aClassData['methods.ref']);
 		$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
-		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body.selfret')); });
+		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body')); });
 		//fixup ctor
 		// var_dump($aClassData['hasCtor']);
 		$aClassData['hasCtor']?:array_unshift($aClassMethods, new Gen\Method('__construct'));
@@ -127,7 +127,8 @@ class SplXPiller
 
 		//get all local public method prototypes
 		$meths=$rc->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED);
-		$meths=array_filter($meths, function($v, $k) use ($baseClassname) { return $v->getDeclaringClass()->getName()==$baseClassname; },
+		$meths_statics=$rc->getMethods(ReflectionMethod::IS_STATIC);
+		$meths=array_filter($meths, function($v, $k) use ($baseClassname) { return ($v->getDeclaringClass()->getName()==$baseClassname) && !$v->isStatic(); },
 							ARRAY_FILTER_USE_BOTH);
 		$aData['methods.ref']=$meths;
 		// $aData['methods']=array_map(function($meth){ return $meth->getName(); }, $meths);
