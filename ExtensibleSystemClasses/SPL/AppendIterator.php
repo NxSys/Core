@@ -69,7 +69,7 @@ class AppendIterator extends StdLib\SPL\IteratorIterator implements \OuterIterat
 			return $ret;
 		}
 		$pfqcn='NxSys\Core\ExtensibleSystemClasses\SPL\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
+		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] ))
 		{
 		    return $pfqcn::_setTarget($ret);
 		}

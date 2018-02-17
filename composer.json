@@ -3,6 +3,17 @@
     "description": "Nexus Core",
     "type": "library",
     "license": "MIT",
+    "support":
+    {
+        "docs": "https://aethershell.readthedocs.io/en/latest",
+        "email": "os@nxsysts.com",
+        "chat": "https://onx.zulipchat.com",
+        "issues": "https://nxsys.assembla.com/spaces/aether/tickets",
+        "forum": "https://nxsys.assembla.com/spaces/aether/messages",
+        "wiki": "http://code.fnetit.net/projects/aether/wiki",
+        "source": "https://nxsys.assembla.com/spaces/aether/subversion/source",
+        "rss": "https://nxsys.assembla.com/spaces/aether/stream.rss"
+     },
     "authors": [
         {
             "name": "Chris R Feamster",
@@ -17,10 +28,15 @@
             "email": "oss@nxsysts.com"
         }
     ],
+
     "minimum-stability": "RC",
     "require":
     {
         "PHP": "^7"
+    },
+    "provide":
+    {
+        "nxsys/core.esc"
     },
     "autoload":
     {
