@@ -51,9 +51,6 @@ interface IReflectionFunction extends IReflectionFunctionAbstract
 	public function __toString();
 
 
-	public static function export($name, $return);
-
-
 	public function isDisabled();
 
 

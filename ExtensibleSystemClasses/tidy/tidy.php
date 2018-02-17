@@ -50,358 +50,103 @@ class tidy implements StdLib\tidy\Itidy, StdLib\IhasTraitDecorating
 
 	public function getOpt()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function cleanRepair()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function parseFile()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function parseString()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function repairString()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function repairFile()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function diagnose()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getRelease()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getConfig()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getStatus()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getHtmlVer()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function isXhtml()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function isXml()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function root()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function head()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function html()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function body()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\tidy\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 

@@ -59,882 +59,252 @@ class XMLWriter implements StdLib\xmlwriter\IXMLWriter, StdLib\IhasTraitDecorati
 
 	public function openUri($uri)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function openMemory()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function setIndent($indent)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function setIndentString($indentString)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startComment()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endComment()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startAttribute($name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endAttribute()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeAttribute($name, $value)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startAttributeNs($prefix, $name, $uri)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeAttributeNs($prefix, $name, $uri, $content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startElement($name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endElement()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function fullEndElement()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startElementNs($prefix, $name, $uri)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeElement($name, $content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeElementNs($prefix, $name, $uri, $content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startPi($target)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endPi()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writePi($target, $content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startCdata()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endCdata()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeCdata($content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function text($content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeRaw($content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startDocument($version, $encoding, $standalone)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endDocument()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeComment($content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startDtd($qualifiedName, $publicId, $systemId)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endDtd()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeDtd($name, $publicId, $systemId, $subset)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startDtdElement($qualifiedName)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endDtdElement()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeDtdElement($name, $content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startDtdAttlist($name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endDtdAttlist()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeDtdAttlist($name, $content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function startDtdEntity($name, $isparam)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function endDtdEntity()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function writeDtdEntity($name, $content)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function outputMemory($flush)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function flush($empty)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\xmlwriter\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 }

@@ -63,15 +63,6 @@ interface IDateTimeImmutable
 	public function __wakeup();
 
 
-	public static function __set_state();
-
-
-	public static function createFromFormat($format, $time, ?\DateTimeZone $object);
-
-
-	public static function getLastErrors();
-
-
 	public function format($format);
 
 
@@ -109,7 +100,4 @@ interface IDateTimeImmutable
 
 
 	public function setTimestamp($unixtimestamp);
-
-
-	public static function createFromMutable($DateTime);
 }

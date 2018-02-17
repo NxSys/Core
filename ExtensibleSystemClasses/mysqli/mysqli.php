@@ -50,358 +50,103 @@ class mysqli implements StdLib\mysqli\Imysqli, StdLib\IhasTraitDecorating
 
 	public function autocommit($mode)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function begin_transaction($flags, $name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function change_user($user, $password, $database)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function character_set_name()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function close()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function commit($flags, $name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function connect($host, $user, $password, $database, $port, $socket)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function dump_debug_info()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function debug($debug_options)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function get_charset()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function get_client_info()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function get_connection_stats()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function get_server_info()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function get_warnings()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function init()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function kill($connection_id)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function multi_query($query)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
@@ -416,525 +161,144 @@ class mysqli implements StdLib\mysqli\Imysqli, StdLib\IhasTraitDecorating
 
 	public function more_results()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function next_result()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function options($option, $value)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function ping()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
-	}
-
-
-	public static function poll(?array &$read, ?array &$write, ?array &$error, $sec, $usec)
-	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function prepare($query)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function query($query, $resultmode)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function real_connect($host, $user, $password, $database, $port, $socket, $flags)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function real_escape_string($string_to_escape)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function reap_async_query()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function escape_string($string_to_escape)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function real_query($query)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function release_savepoint($name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function rollback($flags, $name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function savepoint($name)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function select_db($database)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function set_charset($charset)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function set_opt($option, $value)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function ssl_set($key, $cert, $certificate_authority, $certificate_authority_path, $cipher)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function stat()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function stmt_init()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function store_result($flags)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function thread_safe()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function use_result()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function refresh($options)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\mysqli\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 }

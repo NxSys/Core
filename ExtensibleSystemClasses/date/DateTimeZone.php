@@ -59,168 +59,30 @@ class DateTimeZone implements StdLib\date\IDateTimeZone, StdLib\IhasTraitDecorat
 
 	public function __wakeup()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
-	}
-
-
-	public static function __set_state()
-	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getName()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getOffset($object)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getTransitions($timestamp_begin, $timestamp_end)
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
 
 	public function getLocation()
 	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
-	}
-
-
-	public static function listAbbreviations()
-	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
-	}
-
-
-	public static function listIdentifiers($what, $country)
-	{
-		$ret=$this->__call(__FUNCTION__, func_get_args());
-		if($ret===$this->_oTargetObject)
-		{
-		    return $this;
-		}
-		if(!is_object($ret))
-		{
-			return $ret;
-		}
-		$pfqcn='NxSys\Core\ExtensibleSystemClasses\date\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type'] )
-		{
-		    return $pfqcn::_setTarget($ret);
-		}
-
-		return $ret;
+		return $this->__call(__FUNCTION__, func_get_args());
 	}
 }

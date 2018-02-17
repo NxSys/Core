@@ -47,8 +47,5 @@ interface IReflectionObject extends IReflectionClass
 	const IS_EXPLICIT_ABSTRACT = 32;
 	const IS_FINAL = 4;
 
-	public static function export($argument, $return);
-
-
 	public function __construct($argument);
 }

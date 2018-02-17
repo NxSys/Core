@@ -55,9 +55,6 @@ interface ISplFixedArray
 	public function toArray();
 
 
-	public static function fromArray($data, $save_indexes);
-
-
 	public function getSize();
 
 

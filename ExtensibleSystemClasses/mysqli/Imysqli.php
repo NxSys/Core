@@ -109,9 +109,6 @@ interface Imysqli
 	public function ping();
 
 
-	public static function poll(?array &$read, ?array &$write, ?array &$error, $sec, $usec);
-
-
 	public function prepare($query);
 
 

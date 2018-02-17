@@ -48,9 +48,6 @@ interface IReflectionProperty
 	const IS_PROTECTED = 512;
 	const IS_PRIVATE = 1024;
 
-	public static function export($class, $name, $return);
-
-
 	public function __construct($class, $name);
 
 

@@ -50,9 +50,6 @@ interface IReflectionMethod extends IReflectionFunctionAbstract
 	const IS_ABSTRACT = 2;
 	const IS_FINAL = 4;
 
-	public static function export($class, $name, $return);
-
-
 	public function __construct($class_or_method, $name);
 
 

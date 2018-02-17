@@ -64,9 +64,6 @@ interface IDateTimeZone
 	public function __wakeup();
 
 
-	public static function __set_state();
-
-
 	public function getName();
 
 
@@ -77,10 +74,4 @@ interface IDateTimeZone
 
 
 	public function getLocation();
-
-
-	public static function listAbbreviations();
-
-
-	public static function listIdentifiers($what, $country);
 }

@@ -179,7 +179,4 @@ interface IPDO
 
 
 	final public function __sleep();
-
-
-	public static function getAvailableDrivers();
 }

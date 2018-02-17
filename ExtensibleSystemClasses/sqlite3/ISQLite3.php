@@ -52,9 +52,6 @@ interface ISQLite3
 	public function exec($query);
 
 
-	public static function version();
-
-
 	public function lastInsertRowID();
 
 
@@ -71,9 +68,6 @@ interface ISQLite3
 
 
 	public function changes();
-
-
-	public static function escapeString($value);
 
 
 	public function prepare($query);

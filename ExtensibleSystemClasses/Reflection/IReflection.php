@@ -43,8 +43,4 @@ namespace NxSys\Core\ExtensibleSystemClasses\Reflection;
  */
 interface IReflection
 {
-	public static function getModifierNames($modifiers);
-
-
-	public static function export(\Reflector $reflector, $return);
 }

@@ -43,9 +43,6 @@ namespace NxSys\Core\ExtensibleSystemClasses\Reflection;
  */
 interface IReflectionZendExtension
 {
-	public static function export($name, $return);
-
-
 	public function __construct($name);
 
 

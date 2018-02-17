@@ -43,9 +43,6 @@ namespace NxSys\Core\ExtensibleSystemClasses\Reflection;
  */
 interface IReflectionParameter
 {
-	public static function export($function, $parameter, $return);
-
-
 	public function __construct($function, $parameter);
 
 

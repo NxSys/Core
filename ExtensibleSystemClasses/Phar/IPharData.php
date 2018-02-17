@@ -177,49 +177,4 @@ interface IPharData extends IRecursiveDirectoryIterator
 
 
 	public function stopBuffering();
-
-
-	final public static function apiVersion();
-
-
-	final public static function canCompress($method);
-
-
-	final public static function canWrite();
-
-
-	final public static function createDefaultStub($index, $webindex);
-
-
-	final public static function getSupportedCompression();
-
-
-	final public static function getSupportedSignatures();
-
-
-	final public static function interceptFileFuncs();
-
-
-	final public static function isValidPharFilename($filename, $executable);
-
-
-	final public static function loadPhar($filename, $alias);
-
-
-	final public static function mapPhar($alias, $offset);
-
-
-	final public static function running($retphar);
-
-
-	final public static function mount($inphar, $externalfile);
-
-
-	final public static function mungServer($munglist);
-
-
-	final public static function unlinkArchive($archive);
-
-
-	final public static function webPhar($alias, $index, $f404, $mimetypes, $rewrites);
 }

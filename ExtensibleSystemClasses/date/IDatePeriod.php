@@ -51,9 +51,6 @@ interface IDatePeriod
 	public function __wakeup();
 
 
-	public static function __set_state();
-
-
 	public function getStartDate();
 
 

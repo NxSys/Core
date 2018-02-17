@@ -43,9 +43,6 @@ namespace NxSys\Core\ExtensibleSystemClasses\Reflection;
  */
 interface IReflectionClassConstant
 {
-	public static function export($class, $name, $return);
-
-
 	public function __construct($class, $name);
 
 
