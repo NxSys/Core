@@ -35,10 +35,6 @@
     {
         "PHP": "^7"
     },
-    "provide":
-    {
-        "nxsys/core.esc": "*"
-    },
     "autoload":
     {
         "psr-4": { "NxSys\\Core\\": "/" }
