@@ -87,8 +87,8 @@ trait DecoratingTrait
 		{
 			return $ret;
 		}
-		$pfqcn=$this->_oSelfReflectionObject->getNamespaceName.'\\'.get_class($ret);
-		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['%decorator.ns\DecoratingTrait.type']))
+		$pfqcn=$this->_oSelfReflectionObject->getNamespaceName().'\\'.get_class($ret);
+		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['NxSys\Core\ExtensibleSystemClasses\DecoratingTrait']))
 		{
 		    return $pfqcn::_setTarget($ret);
 		}
@@ -98,7 +98,20 @@ trait DecoratingTrait
 
 	public function __callStatic($sMethName, $aArgs=[])
 	{
+		$sBaseName = substr(static::class, strrpos(static::class, '\\') + 1);
+		$ret = call_user_func_array([$sBaseName, $sMethName], (array)$aArgs);
 
+		if(!is_object($ret))
+		{
+			return $ret;
+		}
+		$pfqcn=substr(static::class, 0, strrpos(static::class, '\\')).'\\'.get_class($ret);
+		if(class_exists($pfqcn) && isset(class_implements($pfqcn)['NxSys\Core\ExtensibleSystemClasses\DecoratingTrait']))
+		{
+		    return $pfqcn::_setTarget($ret);
+		}
+
+		return $ret;
 	}
 
 
