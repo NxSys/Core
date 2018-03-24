@@ -25,7 +25,7 @@ namespace NxSys\Core\ExtensibleSystemClasses;
 
 
 /**
- * This interface decribes the contract fulfilled by using the trait "DecoratingTrait"
+ * This interface describes the contract fulfilled by using the trait "DecoratingTrait"
  *
  * @see DecoratingTrait
  */

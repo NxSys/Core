@@ -6,8 +6,8 @@
 # %php.ns
 # %php.ndir
 
-class-path-pattern: ../src/ExtensibleSystemClasses%php.ndir/%classname.php
-iface-path-pattern: ../src/ExtensibleSystemClasses%php.ndir/I%classname.php
+class-path-pattern: ../build/ExtensibleSystemClasses%php.ndir/%classname.php
+iface-path-pattern: ../build/ExtensibleSystemClasses%php.ndir/I%classname.php
 
 namespace: NxSys\Core\ExtensibleSystemClasses%php.ns
 pkgname: NxSys.Core\ESC
@@ -20,6 +20,7 @@ blacklist.classes:
 blacklist.exts:
 	- soap	#@todo: soap ext, in all its broken-ness, is using PHP4 style constructors
 	- fileinfo #@todo: @see soap
+	- hrtime
 
 whitelist.classes:
 	# - StdClass

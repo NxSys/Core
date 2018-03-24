@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ===========================================================================
+# $BaseName$
+# $Id$
+#
+# Description:
+# Build file for NXS Core
+#
+# @link http://nxsys.org/spaces/onx
+# @link https://onx.zulipchat.com
+#
+# @package Nxsys
+# @subpackage Core
+# @license http://nxsys.org/spaces/onx/wiki/license
+# Please see the license.txt file or the url above for full copyright and license information.
+# @copyright Copyright 2018 Nexus Systems, inc.
+#
+# @author Chris R. Feamster <cfeamster@nxsysts.com>
+# @author $LastChangedBy$
+#
+# @version $Revision$
+#
+============================================================================ -->
+<project name="nxsys/core" default="dist">
+
+	<!-- ============================================  -->
+	<!-- Target: prepare                               -->
+	<!-- ============================================  -->
+	<target name="prepare">
+		<echo msg="Making directory ./build" />
+		<mkdir dir="./build" />
+		<echo msg="Making directory ./build/ExtensibleSystemClasses" />
+		<mkdir dir="./build/ExtensibleSystemClasses" />
+		<echo msg="Making directory ./build/docs" />
+		<mkdir dir="./build/docs" />
+	</target>
+
+	<target name="escgen">
+		<echo msg="Generating ESC..." />
+		<exec command="php bin\esc-generator.php"  checkreturn="true" passthru="false" />
+	</target>
+
+
+	<!-- ============================================  -->
+	<!-- Target: build                                 -->
+	<!-- ============================================  -->
+	<target name="build" depends="prepare,escgen">
+		<echo msg="Copying files to build directory..." />
+
+		<copy file="./etc/esc/ICompleteStreamWrapper.php" tofile="./build/ExtensibleSystemClasses" />
+		<copy file="./etc/esc/AbstractCompleteStreamWrapper.php" tofile="./build/ExtensibleSystemClasses" />
+		<copy file="./etc/esc/DecoratingTrait.php" tofile="./build/ExtensibleSystemClasses" />
+		<copy file="./etc/esc/IhasTraitDecorating.php" tofile="./build/ExtensibleSystemClasses" />
+		<copy file="./etc/composer.json" tofile="./build/" />
+	</target>
+
+	<!-- ============================================  -->
+	<!-- (DEFAULT)  Target: dist                       -->
+	<!-- ============================================  -->
+	<target name="dist" depends="build">
+		<echo msg="Creating archive..." />
+
+		<zip destfile="./build/build.zip">
+			<fileset dir="./build">
+				<include name="**" />
+			</fileset>
+		</zip>
+
+		<echo msg="Files copied and compressed in build directory OK!" />
+	</target>
+</project>

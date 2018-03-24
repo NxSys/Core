@@ -96,7 +96,7 @@ trait DecoratingTrait
 		return $ret;
 	}
 
-	public function __callStatic($sMethName, $aArgs=[])
+	public static function __callStatic($sMethName, $aArgs=[])
 	{
 		$sBaseName = substr(static::class, strrpos(static::class, '\\') + 1);
 		$ret = call_user_func_array([$sBaseName, $sMethName], (array)$aArgs);

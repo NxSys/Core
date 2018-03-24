@@ -1,6 +1,7 @@
 <?php
 /**
  * Stream Wrapper Prototype
+ * $BaseName$
  *
  * $Id$
  *
@@ -8,7 +9,7 @@
  * @package NxSys.Library\IO
  * @license http://nxsys.org/spaces/onx/wiki/License
  * Please see the license.txt file or the url above for full copyright and license information.
- * @copyright Copyright 2016 Nexus Systems, Inc.
+ * @copyright Copyright 2018 Nexus Systems, Inc.
  *
  * @author Chris R. Feamster <cfeamster@nxsysts.com>
  * @author $LastChangedBy$
@@ -18,9 +19,6 @@
 
 /** Local Namespace **/
 namespace NxSys\Core\ExtensibleSystemClasses;
-
-// Project Namespaces
-use NxSys\Library\IO as NclIo;
 
 /**
  * Interface for use with a *complete* streamWrapper

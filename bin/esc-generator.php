@@ -88,7 +88,7 @@ class SplXPiller
 		$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
 		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body')); });
 		//fixup ctor
-		// var_dump($aClassData['hasCtor']);
+		// var_dump($aClassData['hasCtor'])
 		$aClassData['hasCtor']?:array_unshift($aClassMethods, new Gen\Method('__construct'));
 		$class->setMethods($aClassMethods);
 		$class->getMethod('__construct')
@@ -102,12 +102,12 @@ class SplXPiller
 	public function reflectOnClass(string $baseClassname): array
 	{
 		$rc=new ReflectionClass($baseClassname);
-		// var_dump($rc->getDocComment());
+		// var_dump($rc->getDocComment())
 		$aData=[];
 
 		//get ext -> ns
-		// $this->sCurrExtName=$rc->getExtensionName();
-		// $this->sCurrExtName=('Core'==$this->sCurrExtName)?'':$this->sCurrExtName;
+		// $this->sCurrExtName=$rc->getExtensionName()
+		// $this->sCurrExtName=('Core'==$this->sCurrExtName)?'':$this->sCurrExtName
 
 		//get implementation declarations
 		$aData['interfaces']=array_map(function($ifs){ return $ifs->getName(); }, $rc->getInterfaces());
@@ -116,6 +116,9 @@ class SplXPiller
 		$aData['constants']=$rc->getConstants();
 
 		$aData['parent'] = $rc->getParentClass();
+
+		// var_dump($rc->getStaticProperties())
+		($rc->getStaticProperties())?null:(sprintf('( %d )', count($rc->getStaticProperties())));
 
 		//get ctor
 		$aData['hasCtor']=false;
@@ -131,7 +134,7 @@ class SplXPiller
 		$meths=array_filter($meths, function($v, $k) use ($baseClassname) { return ($v->getDeclaringClass()->getName()==$baseClassname) && !$v->isStatic(); },
 							ARRAY_FILTER_USE_BOTH);
 		$aData['methods.ref']=$meths;
-		// $aData['methods']=array_map(function($meth){ return $meth->getName(); }, $meths);
+		// $aData['methods']=array_map(function($meth){ return $meth->getName(); }, $meths)
 		//get
 
 		return $aData;
@@ -149,9 +152,9 @@ class SplXPiller
 		$aTokens=[];
 		$aTokens['%classname']=$this->sCurrClassname;
 		$aTokens['%classname.lower']=strtolower($this->sCurrClassname);
-		$aTokens['%php.ns' ]=$this->sCurrExtName?'\\'.$this->sCurrExtName:null;
+		$aTokens['%php.ns'  ]=$this->sCurrExtName?'\\'.$this->sCurrExtName:null;
 		$aTokens['%php.ndir']=$this->sCurrExtName?(DIRECTORY_SEPARATOR.$this->sCurrExtName):null;
-// var_dump($this->sCurrExtName,$aTokens);
+// var_dump($this->sCurrExtName,$aTokens)
 		//setup % prefix
 		$cnftok=array_combine(array_map(function($k){return '%'.$k;}, array_keys($this->conf)), $this->conf);
 
@@ -191,7 +194,7 @@ function getInternalClasses()
 	}
 	return $a;
 }
-// $aTargetClassnames=spl_classes();
+// $aTargetClassnames=spl_classes()
 
 $aTargetClassnames=getInternalClasses();
 // foreach ($conf['classes'] as $cls)
@@ -199,7 +202,7 @@ foreach ($aTargetClassnames as $cls)
 {
 	echo "$cls";
 	(new SplXPiller($cls))->exec();
-	echo "...\n";
+	echo "...";
 }
 echo "\ndone";
 chdir($oldcd);
