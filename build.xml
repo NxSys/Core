@@ -27,6 +27,14 @@
 	<!-- Target: prepare                               -->
 	<!-- ============================================  -->
 	<target name="prepare">
+		<if>
+			<not>
+				<isset property="ver" />
+			</not>
+			<then>
+				<echo msg="NOTICE: Version is not set, distributables will not be created." />
+			</then>
+		</if>
 		<echo msg="Making directory ./build" />
 		<mkdir dir="./build" />
 		<echo msg="Making directory ./build/ExtensibleSystemClasses" />
@@ -47,17 +55,18 @@
 	<target name="build" depends="prepare,escgen">
 		<echo msg="Copying files to build directory..." />
 
-		<copy file="./etc/esc/ICompleteStreamWrapper.php" tofile="./build/ExtensibleSystemClasses" />
-		<copy file="./etc/esc/AbstractCompleteStreamWrapper.php" tofile="./build/ExtensibleSystemClasses" />
-		<copy file="./etc/esc/DecoratingTrait.php" tofile="./build/ExtensibleSystemClasses" />
-		<copy file="./etc/esc/IhasTraitDecorating.php" tofile="./build/ExtensibleSystemClasses" />
-		<copy file="./etc/composer.json" tofile="./build/" />
+		<copy file="./etc/esc/ICompleteStreamWrapper.php" tofile="./build/ExtensibleSystemClasses/ICompleteStreamWrapper.php" />
+		<copy file="./etc/esc/AbstractCompleteStreamWrapper.php" tofile="./build/ExtensibleSystemClasses/AbstractCompleteStreamWrapper.php" />
+		<copy file="./etc/esc/DecoratingTrait.php" tofile="./build/ExtensibleSystemClasses/DecoratingTrait.php" />
+		<copy file="./etc/esc/IhasTraitDecorating.php" tofile="./build/ExtensibleSystemClasses/IhasTraitDecorating.php" />
+		<copy file="./etc/composer.json" tofile="./build/composer.json" />
 	</target>
 
 	<!-- ============================================  -->
 	<!-- (DEFAULT)  Target: dist                       -->
 	<!-- ============================================  -->
-	<target name="dist" depends="build">
+	<target name="dist" depends="build" if="ver">
+		
 		<echo msg="Creating archive..." />
 
 		<zip destfile="./build/build.zip">
@@ -67,5 +76,12 @@
 		</zip>
 
 		<echo msg="Files copied and compressed in build directory OK!" />
+		<echo msg="Moving to tag for version ${ver}" />
+		<copy todir="../tags/${ver}">
+			<fileset dir="./build">
+				<include name="**"></include>
+				<exclude name="**/.svn/**"></exclude>
+			</fileset>
+		</copy>
 	</target>
 </project>

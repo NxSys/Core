@@ -75,8 +75,15 @@ class SplXPiller
 		if ($aClassData['parent'] != null)
 		{
 			$sParent=$aClassData['parent']->getName();
-			$interface->addExtend($this->getTxt('namespace').'\I'.$sParent);
-			$class->addExtend($this->getTxt('namespace').'\\'.$sParent);
+			if (!in_array($sParent, (array)$this->conf['blacklist.classes']))
+			{
+				$interface->addExtend($this->getTxt('namespace').'\I'.$sParent);
+				$class->addExtend($this->getTxt('namespace').'\\'.$sParent);
+			}
+			else
+			{
+				$class->addExtend($sParent);
+			}
 		}
 
 		//@todo this is more verbose (syntax & interface count) then it needs to be

@@ -17,6 +17,8 @@ composername: nxsys/core.esc
 blacklist.classes:
 	# - Closure
 	# - SoapClient
+	- Error
+	- Exception
 blacklist.exts:
 	- soap	#@todo: soap ext, in all its broken-ness, is using PHP4 style constructors
 	- fileinfo #@todo: @see soap
