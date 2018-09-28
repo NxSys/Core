@@ -6,7 +6,7 @@
     "minimum-stability": "stable",
     "require": {},
     "require-dev": {
-        "nette/php-generator": "^3.1",
+        "nette/php-generator": "^3.2",
         "nette/neon": "^2.4"
     }
 }
