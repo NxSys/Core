@@ -32,7 +32,8 @@
     "minimum-stability": "RC",
     "require":
     {
-        "PHP": "^7"
+        "ext-uopz": "^6.0",
+        "PHP": "^7.2"
     },
     "autoload":
     {

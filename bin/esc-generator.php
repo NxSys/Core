@@ -35,7 +35,7 @@ class SplXPiller
 		$oTypedClass=new Gen\PhpFile;
 		$oTypedClass->addComment($this->getTxt('txt.file.doc'));
 		$oClassNS=$oTypedClass->addNamespace($this->getTxt('namespace'));
-		$oClassNS->addUse($this->getTxt('decorator.ns'), 'StdLib');
+		// $oClassNS->addUse($this->getTxt('decorator.ns'), 'StdLib');
 		$oClassNS->addUse($this->sCurrClassname, 'PHP_'.$this->sCurrClassname);
 
 		//create interface
@@ -48,28 +48,28 @@ class SplXPiller
 		$oClassBase->addComment($this->getTxt('txt.class.doc'));
 		$oItypeBase->addComment($this->getTxt('txt.itype.doc'));
 
-		$oClassBase->addTrait($this->getTxt('decorator'));
+		//$oClassBase->addTrait($this->getTxt('decorator'));
 		$this->buildClassPair($oClassBase, $oItypeBase);
 		$oClassBase->addImplement($this->getTxt('namespace').'\I'.$this->sCurrClassname);
-		$oClassBase->addImplement($this->getTxt('decorator.type'));
+		//$oClassBase->addImplement($this->getTxt('decorator.type'));
 
 
-		$this->write($oTypedClass, $this->getTxt('class-path-pattern'));
-		$this->write($oTypedIface, $this->getTxt('iface-path-pattern'));
+		$this->write($oTypedClass, $this->getTxt('php.concretions.uopz.extend'), $this->getTxt('class-path-pattern'));
+		$this->write($oTypedIface, "", $this->getTxt('iface-path-pattern'));
 		return;
 	}
 
-	public function write(Nette\PhpGenerator\PhpFile $file, string $sFileName)
+	public function write(Nette\PhpGenerator\PhpFile $file, string $addendum, string $sFileName)
 	{
 		// echo $file;
 		@mkdir(dirname($sFileName));
-		file_put_contents($sFileName, $file);
+		file_put_contents($sFileName, (string) $file . "\n" . $addendum);
 	}
 
 	public function buildClassPair(Gen\ClassType $class, Gen\ClassType $interface)
 	{
 		$aClassData=$this->reflectOnClass($class->getName());
-		$interface->setConstants($aClassData['constants']);
+		//$interface->setConstants($aClassData['constants']);
 
 		//parental assistance is suggested
 		if ($aClassData['parent'] != null)
@@ -78,29 +78,29 @@ class SplXPiller
 			if (!in_array($sParent, (array)$this->conf['blacklist.classes']))
 			{
 				$interface->addExtend($this->getTxt('namespace').'\I'.$sParent);
-				$class->addExtend($this->getTxt('namespace').'\\'.$sParent);
+				//$class->addExtend($this->getTxt('namespace').'\\'.$sParent);
 			}
 			else
 			{
-				$class->addExtend($sParent);
+				$class->addExtend('\\' . $sParent);
 			}
 		}
 
 		//@todo this is more verbose (syntax & interface count) then it needs to be
-		array_walk($aClassData['interfaces'], function($ifs) use ($class) { $class->addImplement($ifs); });
+		//array_walk($aClassData['interfaces'], function($ifs) use ($class) { $class->addImplement($ifs); });
 
 
 		//add more meths C&I
-		$aClassMethods=array_map(function($rm) use ($class) { return Gen\Method::from([$class->getName(), $rm->getName()])->setBody(null); }, $aClassData['methods.ref']);
-		$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
-		array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body')); });
+		//$aClassMethods=array_map(function($rm) use ($class) { return Gen\Method::from([$class->getName(), $rm->getName()])->setBody(null); }, $aClassData['methods.ref']);
+		//$interface->setMethods(array_map(function($o) { return clone $o; }, $aClassMethods));
+		//array_walk($aClassMethods, function($meth) { $meth->setBody($this->getTxt('php.concretions.body')); });
 		//fixup ctor
 		// var_dump($aClassData['hasCtor'])
-		$aClassData['hasCtor']?:array_unshift($aClassMethods, new Gen\Method('__construct'));
-		$class->setMethods($aClassMethods);
-		$class->getMethod('__construct')
-			  ->addComment('ctor')
-			  ->setBody($this->getTxt('php.ctor.body'));
+		//$aClassData['hasCtor']?:array_unshift($aClassMethods, new Gen\Method('__construct'));
+		//$class->setMethods($aClassMethods);
+		//$class->getMethod('__construct')
+			  //->addComment('ctor')
+			  //->setBody($this->getTxt('php.ctor.body'));
 
 		//@todo fixup edgecases?
 		return;

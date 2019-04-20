@@ -122,6 +122,8 @@ php.concretions.body.selfret: '''
         return $ret;
 '''
 
+php.concretions.uopz.extend: "uopz_extend(%classname::class, PHP_%classname::class);"
+
 # and now... of course
 # ...the envitable..
 # ------ E D G E   C A S E S ------
