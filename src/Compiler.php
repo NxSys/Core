@@ -1,19 +1,14 @@
-<?php
-require_once 'vendor\autoload.php';
+<?php 
 
-use Nette\Neon;
+namespace NxSys\Core\ExtensibleSystemClasses;
+use ReflectionClass, ReflectionMethod;
 use Nette\PhpGenerator as Gen;
 
-$oldcd=getcwd();
-chdir(__DIR__);
-const SCRIPT_CONFIG='esc-generator.neon';
-($conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG))) or die('Problem with config file');
+//use Nette\Utils\ObjectHelpers\SmartObject;
 
-//-----C L A S S E S-----
-
-class SplXPiller
+class Compiler
 {
-	use Nette\SmartObject;
+	//use \Nette\Utils\ObjectHelpers\SmartObject;
 	public $conf=[];
 	public $sCurrClassname;
 
@@ -21,12 +16,12 @@ class SplXPiller
 
 	public function __construct($sClassName)
 	{
-		$this->conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG));
+		$this->conf=\Nette\Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG));
 
 		$this->sCurrClassname=$sClassName;
 	}
 
-	public function exec()
+	public function exec(): array
 	{
 		$this->sCurrExtName=(new ReflectionClass($this->sCurrClassname))->getExtensionName();
 		$this->sCurrExtName=('Core'==$this->sCurrExtName)?false:$this->sCurrExtName;
@@ -53,16 +48,20 @@ class SplXPiller
 		$oClassBase->addImplement($this->getTxt('namespace').'\I'.$this->sCurrClassname);
 		//$oClassBase->addImplement($this->getTxt('decorator.type'));
 
-
-		$this->write($oTypedClass, $this->getTxt('php.concretions.uopz.extend'), $this->getTxt('class-path-pattern'));
-		$this->write($oTypedIface, "", $this->getTxt('iface-path-pattern'));
-		return;
+        $sClassFile = $this->getTxt('class-path-pattern');
+        $sIntefaceFile = $this->getTxt('iface-path-pattern');
+		$this->write($oTypedClass, $this->getTxt('php.concretions.uopz.extend'), $sClassFile);
+		$this->write($oTypedIface, "", $sIntefaceFile);
+		return [$sClassFile, $sIntefaceFile];
 	}
 
-	public function write(Nette\PhpGenerator\PhpFile $file, string $addendum, string $sFileName)
+	public function write(Gen\PhpFile $file, string $addendum, string $sFileName)
 	{
-		// echo $file;
-		@mkdir(dirname($sFileName));
+        // echo $file;
+        if(!file_exists(dirname($sFileName)))
+        {
+            mkdir(dirname($sFileName));
+        }
 		file_put_contents($sFileName, (string) $file . "\n" . $addendum);
 	}
 
@@ -159,8 +158,8 @@ class SplXPiller
 		$aTokens=[];
 		$aTokens['%classname']=$this->sCurrClassname;
 		$aTokens['%classname.lower']=strtolower($this->sCurrClassname);
-		$aTokens['%php.ns'  ]=$this->sCurrExtName?'\\'.$this->sCurrExtName:null;
-		$aTokens['%php.ndir']=$this->sCurrExtName?(DIRECTORY_SEPARATOR.$this->sCurrExtName):null;
+		$aTokens['%php.ns'  ]='\\'.($this->sCurrExtName?$this->sCurrExtName:'PHP');
+		$aTokens['%php.ndir']=DIRECTORY_SEPARATOR.($this->sCurrExtName?$this->sCurrExtName:'PHP');
 // var_dump($this->sCurrExtName,$aTokens)
 		//setup % prefix
 		$cnftok=array_combine(array_map(function($k){return '%'.$k;}, array_keys($this->conf)), $this->conf);
@@ -170,46 +169,3 @@ class SplXPiller
 		return @strtr(str_replace(array_keys($cnftok), $this->conf, $this->conf[$sBlockName]), $aTokens);
 	}
 }
-//-----F U N C T I O N S-----
-
-function getInternalClasses()
-{
-	($conf=Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG))) or die('Problem with config file');
-	$a=[];
-	$aAllTheClasses=get_declared_classes();
-	if($conf['whitelist.classes'])
-	{
-		array_unshift($aAllTheClasses, ...$conf['whitelist.classes']);
-	}
-	if($conf['whitelist.exts'])
-	{
-		array_walk($conf['whitelist.exts'], function($ext) use($aAllTheClasses) { array_unshift($aAllTheClasses, (new ReflectionExtension($ext))->getClassNames());} );
-	}
-	foreach($aAllTheClasses as $cls)
-	{
-		$rc=new \ReflectionClass($cls);
-		if($rc->isUserDefined()
-		|| $rc->isFinal()
-		|| ($rc->getConstructor()?$rc->getConstructor()->isPrivate():false)
-		|| in_array($cls, (array)$conf['blacklist.classes'])
-		|| in_array($rc->getExtensionName(), (array)$conf['blacklist.exts'])
-		)
-		{
-			continue;
-		}
-		$a[]=$cls;
-	}
-	return $a;
-}
-// $aTargetClassnames=spl_classes()
-
-$aTargetClassnames=getInternalClasses();
-// foreach ($conf['classes'] as $cls)
-foreach ($aTargetClassnames as $cls)
-{
-	echo "$cls";
-	(new SplXPiller($cls))->exec();
-	echo "...";
-}
-echo "\ndone";
-chdir($oldcd);

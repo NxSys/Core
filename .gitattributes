@@ -1,15 +1,17 @@
 * text=auto !eol
 bin/esc-generator.neon -text
-bin/esc-generator.php -text
 /build.xml -text
 /codeception.yml -text
 /composer.json -text
 /composer.lock -text
 etc/composer.json -text
+etc/esc-generator.neon -text
 etc/esc/AbstractCompleteStreamWrapper.php -text
 etc/esc/DecoratingTrait.php -text
 etc/esc/ICompleteStreamWrapper.php -text
 etc/esc/IhasTraitDecorating.php -text
+src/Compiler.php -text
+src/_esc-jit-generator.php -text
 tests/_data/.gitkeep -text
 tests/_output/.gitkeep -text
 tests/_support/AcceptanceTester.php -text

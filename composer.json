@@ -1,12 +1,46 @@
 {
     "name": "nxsys/core",
-    "description": "Core Complete",
+    "description": "Nexus Core",
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "stable",
-    "require": {},
-    "require-dev": {
+    "support":
+    {
+        "docs": "https://nxsys.assembla.com/spaces/onx/wiki/core",
+        "email": "os@nxsysts.com",
+        "chat": "https://onx.zulipchat.com",
+        "issues": "https://nxsys.assembla.com/spaces/onx/tickets",
+        "forum": "https://nxsys.assembla.com/spaces/onx/messages",
+        "wiki": "https://nxsys.assembla.com/spaces/onx/wiki/core",
+        "source": "https://nxsys.assembla.com/spaces/onx/subversion/source",
+        "rss": "https://nxsys.assembla.com/spaces/onx/stream.rss"
+     },
+    "authors": [
+        {
+            "name": "Chris R Feamster",
+            "email": "cfeamster@nxsysts.com"
+        },
+        {
+            "name": "William A Graber, II",
+            "email": "wgraber@nxsysts.com"
+        },
+        {
+            "name": "Nexus Systems, Inc.",
+            "email": "oss@nxsysts.com"
+        }
+    ],
+    
+    "minimum-stability": "RC",
+    "require":
+    {
         "nette/php-generator": "^3.2",
-        "nette/neon": "^2.4"
+        "nette/neon": "^2.4",
+        "ext-uopz": "^6.0",
+        "PHP": "^7.2"
+    },
+    "autoload":
+    {
+        "NxSys\\Core\\ExtensibleSystemClasses\\": ["_generated", "src"]
+        ,"files": ["src/_esc-jit-generator.php"]
     }
 }
+
