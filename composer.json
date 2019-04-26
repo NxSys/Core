@@ -39,7 +39,10 @@
     },
     "autoload":
     {
-        "NxSys\\Core\\ExtensibleSystemClasses\\": ["_generated", "src"]
+        "psr-4" :
+        {
+            "NxSys\\Core\\ExtensibleSystemClasses\\": ["_generated", "src"]
+        }
         ,"files": ["src/_esc-jit-generator.php"]
     }
 }
