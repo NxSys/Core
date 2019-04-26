@@ -1,5 +1,4 @@
 * text=auto !eol
-bin/esc-generator.neon -text
 /build.xml -text
 /codeception.yml -text
 /composer.json -text
