@@ -9,7 +9,6 @@ defined('MSG_ESC_NOCONF')	|| define('MSG_ESC_NOCONF', 'ESC: The detected configu
 function __ESC_JIT_AUTOLOADER(string $sClass)
 {
 	static $conf;
-	var_dump($sClass);
 	if(!$conf)
 	{
 		($conf=\Nette\Neon\Neon::decode(file_get_contents(SCRIPT_CONFIG)) or trigger_error(MSG_ESC_NOCONF, E_USER_NOTICE));	
@@ -34,9 +33,6 @@ function __ESC_JIT_AUTOLOADER(string $sClass)
 	
 	
 	$rc=new \ReflectionClass($sBaseClassname);
-	var_dump($rc,$rc->isUserDefined(),($rc->getConstructor()?$rc->getConstructor()->isPrivate():false),
-	in_array($sBaseClassname, (array)$conf['blacklist.classes']),
-	 in_array($rc->getExtensionName(), (array)$conf['blacklist.exts']));
 	if($rc->isUserDefined()
 		|| $rc->isFinal()
 		|| ($rc->getConstructor()?$rc->getConstructor()->isPrivate():false)
@@ -49,7 +45,6 @@ function __ESC_JIT_AUTOLOADER(string $sClass)
 	else
 	{
         //Call compiler
-        var_dump($sBaseClassname);
 		$aCIPair=(new \NxSys\Core\ExtensibleSystemClasses\Compiler($sBaseClassname))->exec();
 		foreach ($aCIPair as $sFile)
 		{
